@@ -6,8 +6,8 @@ Folders `assign{x}`, where _x_ is a wildcard, contain my solutions to assignment
 
 The folder structure of each `assign{x}` is as follows:
 
-`
+```
 test
 tset
 tset
-
+```
