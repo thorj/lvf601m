@@ -1,0 +1,50 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 2
+Rules claiming more threads will be scaled down.
+Job stats:
+job                     count    min threads    max threads
+--------------------  -------  -------------  -------------
+all                         1              1              1
+generate_diag_table         1              1              1
+generate_naive_table        1              1              1
+generate_report             1              1              1
+total                       4              1              1
+
+Select jobs to execute...
+
+[Sat Jan 15 13:46:51 2022]
+rule generate_naive_table:
+    output: tables/erdNavTab.txt
+    jobid: 2
+    resources: tmpdir=/tmp
+
+[Sat Jan 15 13:46:51 2022]
+rule generate_diag_table:
+    output: tables/erdDiaTab.txt
+    jobid: 3
+    resources: tmpdir=/tmp
+
+[Sat Jan 15 13:46:51 2022]
+Error in rule generate_diag_table:
+    jobid: 3
+    output: tables/erdDiaTab.txt
+
+RuleException:
+CalledProcessError in line 11 of /home/tjonmundsson/Documents/lvf601m/assignments/assign1/Snakefile:
+Command 'set -euo pipefail;  Rscript --vanilla /home/tjonmundsson/Documents/lvf601m/assignments/assign1/.snakemake/scripts/tmpz56w8wrv.erdosRenyiDiag.R' returned non-zero exit status 1.
+  File "/home/tjonmundsson/Documents/lvf601m/assignments/assign1/Snakefile", line 11, in __rule_generate_diag_table
+  File "/home/tjonmundsson/mambaforge/lib/python3.9/concurrent/futures/thread.py", line 52, in run
+[Sat Jan 15 13:47:01 2022]
+Error in rule generate_naive_table:
+    jobid: 2
+    output: tables/erdNavTab.txt
+
+RuleException:
+CalledProcessError in line 17 of /home/tjonmundsson/Documents/lvf601m/assignments/assign1/Snakefile:
+Command 'set -euo pipefail;  Rscript --vanilla /home/tjonmundsson/Documents/lvf601m/assignments/assign1/.snakemake/scripts/tmp2ari6zi2.erdosRenyiNaive.R' returned non-zero exit status 1.
+  File "/home/tjonmundsson/Documents/lvf601m/assignments/assign1/Snakefile", line 17, in __rule_generate_naive_table
+  File "/home/tjonmundsson/mambaforge/lib/python3.9/concurrent/futures/thread.py", line 52, in run
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: /home/tjonmundsson/Documents/lvf601m/assignments/assign1/.snakemake/log/2022-01-15T134651.142237.snakemake.log

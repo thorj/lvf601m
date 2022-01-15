@@ -1,0 +1,35 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Job stats:
+job                count    min threads    max threads
+---------------  -------  -------------  -------------
+all                    1              1              1
+generate_report        1              1              1
+total                  2              1              1
+
+Select jobs to execute...
+
+[Sat Jan 15 13:33:05 2022]
+rule generate_report:
+    input: report/lvf601_assignment_1.Rmd
+    output: report/lvf601_assignment_1.pdf
+    jobid: 1
+    resources: tmpdir=/tmp
+
+[Sat Jan 15 13:33:07 2022]
+Finished job 1.
+1 of 2 steps (50%) done
+Select jobs to execute...
+
+[Sat Jan 15 13:33:07 2022]
+localrule all:
+    input: report/lvf601_assignment_1.pdf
+    jobid: 0
+    resources: tmpdir=/tmp
+
+[Sat Jan 15 13:33:07 2022]
+Finished job 0.
+2 of 2 steps (100%) done
+Complete log: /home/tjonmundsson/Documents/lvf601m/assignments/assign1/.snakemake/log/2022-01-15T133305.614979.snakemake.log

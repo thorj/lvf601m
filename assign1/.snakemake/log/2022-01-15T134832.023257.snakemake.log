@@ -1,0 +1,2 @@
+SyntaxError in line 18 of /home/tjonmundsson/Documents/lvf601m/assignments/assign1/Snakefile:
+Multiple run or shell keywords in rule generate_naive_table. (Snakefile, line 18)

@@ -1,0 +1,35 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Job stats:
+job                     count    min threads    max threads
+--------------------  -------  -------------  -------------
+all                         1              1              1
+generate_diag_table         1              1              1
+generate_naive_table        1              1              1
+generate_report             1              1              1
+total                       4              1              1
+
+Select jobs to execute...
+
+[Sat Jan 15 13:37:26 2022]
+rule generate_naive_table:
+    output: tables/erdNavTab.txt
+    jobid: 2
+    resources: tmpdir=/tmp
+
+[Sat Jan 15 13:37:26 2022]
+Error in rule generate_naive_table:
+    jobid: 2
+    output: tables/erdNavTab.txt
+
+RuleException:
+WorkflowError in line 15 of /home/tjonmundsson/Documents/lvf601m/assignments/assign1/Snakefile:
+Failed to open source file /home/tjonmundsson/Documents/lvf601m/assignments/assign1/Rscript scripts/erdosRenyiNaive.R
+FileNotFoundError: [Errno 2] No such file or directory: '/home/tjonmundsson/Documents/lvf601m/assignments/assign1/Rscript scripts/erdosRenyiNaive.R'
+  File "/home/tjonmundsson/Documents/lvf601m/assignments/assign1/Snakefile", line 15, in __rule_generate_naive_table
+  File "/home/tjonmundsson/mambaforge/lib/python3.9/concurrent/futures/thread.py", line 52, in run
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: /home/tjonmundsson/Documents/lvf601m/assignments/assign1/.snakemake/log/2022-01-15T133726.704612.snakemake.log

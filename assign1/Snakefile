@@ -1,0 +1,25 @@
+rule all:
+    input:
+        "report/lvf601_assignment_1.pdf"
+
+rule generate_diag_table:
+    output:
+        "tables/erdDiaTab.txt"
+    shell:
+        "Rscript scripts/erdosRenyiDiag.R"
+
+rule generate_naive_table:
+    output:
+        "tables/erdNavTab.txt"
+    shell:
+        "Rscript scripts/erdosRenyiNaive.R"
+
+rule generate_report:
+    input:
+        "report/lvf601_assignment_1.Rmd",
+        "tables/erdNavTab.txt",
+        "tables/erdDiaTab.txt"
+    output:
+        "report/lvf601_assignment_1.pdf"
+    shell:
+        "Rscript -e \"rmarkdown::render('report/lvf601_assignment_1.Rmd\')\""

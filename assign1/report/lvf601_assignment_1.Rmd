@@ -2,23 +2,14 @@
 output: 
   bookdown::pdf_document2:
     number_sections: false
-    pandoc_args: ["--csl", "bib/nature.csl"]
     includes:
-      in_header: ../template/header.tex
-header-includes:
-        -  \usepackage{fancyhdr}
-        -  \pagestyle{fancy}
-        -  \fancyhf{}
-        -  \fancyhead[L]{LVF601M - Introduction to systems biology}
-        -  \fancyhead[R]{\thepage}
-        -  \fancyfoot[L]{Þórarinn Jónmundsson}
-        -  \fancyfoot[R]{Fall 2022}
-        -  \setlength{\headheight}{13.6pt}
+        in_header: ../../template/header.tex
 geometry: margin=1.25in
 fontsize: 11pt
 toc: false
 linestretch: 1.3
-bibliography: "bib/refs.bib"
+bibliography: '`r here("assign1","bib", "refs.bib")`'
+csl: '`r here("template", "nature.csl")`'
 link-citations: true
 ---
 
