@@ -32,6 +32,8 @@ options(scipen = 999)
 {\Large Assignment 1}
 \end{center}
 
+Note: all files relevant to this document are hosted on [GitHub](https://github.com/thorj/lvf601m)
+
 ## Problem 1: [1 point]
 In a few sentences, without referring to specific numbers, what are the major quantitative differences that impact biology between *E.coli, S. cerevisiae* and human cells?
 
@@ -114,7 +116,7 @@ To naively simulate such a system it suffices to randomly select element $a_ {ij
 
 The results of the simulations can be seen in the following table:
 ```{r}
-fread(here('tables', 'erdNavTab.txt')) %>% 
+fread(here('assign1', 'tables', 'erdNavTab.txt')) %>% 
     kbl(align = c('r', 'l'), booktabs = T, linesep = '') %>%
     kable_styling(full_width = F, latex_options = 'hold_position') %>%
     row_spec(0, bold = T)
@@ -135,7 +137,7 @@ Then $Y = \sum X_ i$ is the total number of nodes with self-arrows. Now, $Y$ is 
 Below is a table where the mean and standard deviations have been computed for increasing numbers of simulations. When the computational times are compared to the naive method we see that there is significant decrease. Furthermore, the mean of the simulations approach the theoretical value. The implementation can be seen in `erdosRenyiDiag.R` or on [GitHub](https://github.com/thorj/lvf601m/blob/main/assign1/erdosRenyiDiag.R).
 
 ```{r}
-fread(here('tables', 'erdDiaTab.txt')) %>%
+fread(here('assign1', 'tables', 'erdDiaTab.txt')) %>%
     kbl(align = 'c', booktabs = T, linesep = '') %>%
     kable_styling(full_width = F, latex_options = 'hold_position') %>%
     row_spec(0, bold = T)
@@ -155,18 +157,18 @@ If $X$ and $Y$ belong to the same tissue the double-positive loop is more benefi
 
 ### LOAD.R
 
-```{r, eval = F, code = readLines(here('scripts', 'LOAD.R')), echo = T}
+```{r, eval = F, code = readLines(here('assign1', 'scripts', 'LOAD.R')), echo = T}
 ```
 
 
 ### erdosRenyiNaive.R
 
-```{r, eval = F, code = readLines(here('scripts', 'erdosRenyiNaive.R')), echo = T}
+```{r, eval = F, code = readLines(here('assign1', 'scripts', 'erdosRenyiNaive.R')), echo = T}
 ```
 
 ### erdosRenyiDiag.R
 
-```{r, eval = F, code = readLines("scripts/erdosRenyiDiag.R"), echo = T}
+```{r, eval = F, code = readLines(here('assign1', 'scripts', 'erdosRenyiDiag.R')), echo = T}
 ```
 
 ## References

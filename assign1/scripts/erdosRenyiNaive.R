@@ -80,7 +80,7 @@ export <-
                Value = c(unlist(res), stop))
 
 
-path <- here('tables', 'erdNavTab.txt')
+path <- here('assign1', 'tables', 'erdNavTab.txt')
 write.table(x = export, file = path, quote = F, 
             sep = ';', row.names = F)
 

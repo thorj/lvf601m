@@ -25,7 +25,7 @@ for (i in 1:l) {
     res[i, 5] <- stops[[1]]
 }
 
-path <- here('tables', 'erdDiaTab.txt')
+path <- here('assign1', 'tables', 'erdDiaTab.txt')
 
 # Write results to table and export
 write.table(x = res, file = path, sep = ';', 
