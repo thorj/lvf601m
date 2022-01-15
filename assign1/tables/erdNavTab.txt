@@ -1,0 +1,7 @@
+Type;Value
+Theoretical mean;1.25
+Theoretical SD;1.11803398874989
+Simulation mean;1.25
+Simulation SD [unbiased];1.20079939703482
+Simulation SD [biased];1.19929745848951
+Computational time;20.3587138652802
