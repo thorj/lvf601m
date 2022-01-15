@@ -98,9 +98,7 @@ Read the paper *"Can a biologist fix a radio? - Or, what I learned while studyin
 
   a. One of the uses of mathematics is that it allows us to describe objects in an abstract manner. The benefits of such abstractions are many but one is particularly relevant to this topic viz.  that two  objects, which at first appear to be completely independent of each other, are revealed to be equivalent (from a certain perspective) once they have been abstracted. When such a relationship exists we say (mathematically) that the two objects are *isomorphic* to each other and it is an immensely powerful connection; indeed, it allows us to study the properties of one object from the perspective of the other and vice versa. This is all well and good when we are examining mathematical structures but unfortunately biological systems are not mathematical objects. There is no reason to expect a one-to-one correspondance between a mathematical approximation of a system and the system itself. Such a limitation may appear to render the engineering approach inappropriate; at least at first glance. All is not lost however as there exists a weaker form of isomorphisms; namely *homomorphisms*. If two objects are homomorphic we can say that they are similar in some sense but not identical as information is lost in translation. Nevertheless, we may still be able to divine some properties of one object through the lense of the other, justifying the endeavor despite its "limitations". The preceeding discussion may seem irrelevant but it is my hope that it illuminates *why* I agree with the author. Even if mathematical representations of biological systems are crude approximations they may yet prove to be *useful*. That is not to say that I am dismissive of the classical approach. Ideally, it is the synthesis of *both* approaches that will ultimately yield the greatest benefit as it allows two schools of thought, two points of view, to completement and support each other in the pursuit, and generation, of new knowledge.
 
-  b. ewrwer2
-
-est
+  b. First of all, we have incomplete information. It is easy to construct such a diagram when all the information is available. This is not the case for biological systems. Second; we do not really *what* we should measure to fill in the information gap.
 
 
 ## Problem 4: [1.5 points]
@@ -112,7 +110,7 @@ We are asked to generate 100 Erdos-Renyi graphs, each with 400 nodes and 500 arr
 
 Let $n$ denote the number of nodes and $k$ the number of edges (arrows) in the graph $G$. Denote the adjaceny matrix of graph $G$ with $A$. Then $A$ is of size $n\times n$. Furthermore, denote the $ij$-th element of $A$ with $a_ {ij}$. The element $a_ {ij}$ can only take one of two possible values; 1 if there exists an edge between nodes $i$ and $j$, and 0 otherwise. As $G$ can only have $k$ edges we have that $T = \sum _ {i,j} ^k a_ {ij} = k$. Note that the diagonal element $a_ {ii}$ takes on a value of 1 if there exists an edge from node $i$ to itself (self arrow).
 
-To naively simulate such a system it suffices to randomly select element $a_ {ij}$ and change its value to 1. The process is then repeated until $T = k$. Then, to find the total number of self-arrows for a given iteration, we can find the trace $A$. Such a method was implemented in `erdosRenyiNaive.R` which can be seen at the end of this document and on [GitHub](https://github.com/thorj/lvf601m/blob/main/assign1/erdosRenyiNaive.R).
+To naively simulate such a system it suffices to randomly select element $a_ {ij}$ and change its value to 1. The process is then repeated until $T = k$. Then, to find the total number of self-arrows for a given iteration, we can find the trace $A$. Such a method was implemented in `erdosRenyiNaive.R` which can be seen at the end of this document and on [GitHub](https://github.com/thorj/lvf601m/blob/main/assign1/scripts/erdosRenyiNaive.R).
 
 The results of the simulations can be seen in the following table:
 ```{r}
@@ -134,7 +132,7 @@ $$
 
 Then $Y = \sum X_ i$ is the total number of nodes with self-arrows. Now, $Y$ is a binomial random variable with parameters $k$ (as the total number of arrows represent the total number of "trials") and $p = 1/n$. Furthermore, the expected value of $Y$ is $E[Y] = kp$ and the variance is $Var(Y) = k p (1 - p)$. Note that when $p$ is a small quantity (as is the case in the book) then $1 - p \approx 1$ and we have $Var(Y) \approx kp$. Using this approach we can simulate the diagonal more efficiently, thus allowing for more iterations which will in turn yield better estimates. 
 
-Below is a table where the mean and standard deviations have been computed for increasing numbers of simulations. When the computational times are compared to the naive method we see that there is significant decrease. Furthermore, the mean of the simulations approach the theoretical value. The implementation can be seen in `erdosRenyiDiag.R` or on [GitHub](https://github.com/thorj/lvf601m/blob/main/assign1/erdosRenyiDiag.R).
+Below is a table where the mean and standard deviations have been computed for increasing numbers of simulations. When the computational times are compared to the naive method we see that there is significant decrease. Furthermore, the mean of the simulations approach the theoretical value. The implementation can be seen in `erdosRenyiDiag.R` or on [GitHub](https://github.com/thorj/lvf601m/blob/main/assign1/scripts/erdosRenyiDiag.R).
 
 ```{r}
 fread(here('assign1', 'tables', 'erdDiaTab.txt')) %>%
