@@ -1,0 +1,31 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Job stats:
+job          count    min threads    max threads
+---------  -------  -------------  -------------
+phasePlot        1              1              1
+total            1              1              1
+
+Select jobs to execute...
+
+[Mon Jan 17 10:56:07 2022]
+rule phasePlot:
+    output: img/phasePlot.png
+    jobid: 0
+    resources: tmpdir=/tmp
+
+[Mon Jan 17 10:56:07 2022]
+Error in rule phasePlot:
+    jobid: 0
+    output: img/phasePlot.png
+
+RuleException:
+CalledProcessError in line 5 of /home/tjonmundsson/Documents/lvf601m/assignments/assign2/Snakefile:
+Command 'set -euo pipefail;  /home/tjonmundsson/mambaforge/bin/python3.9 /home/tjonmundsson/Documents/lvf601m/assignments/assign2/.snakemake/scripts/tmp2wqlfoy_.phasePlot.py' returned non-zero exit status 1.
+  File "/home/tjonmundsson/Documents/lvf601m/assignments/assign2/Snakefile", line 5, in __rule_phasePlot
+  File "/home/tjonmundsson/mambaforge/lib/python3.9/concurrent/futures/thread.py", line 52, in run
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: /home/tjonmundsson/Documents/lvf601m/assignments/assign2/.snakemake/log/2022-01-17T105607.145436.snakemake.log

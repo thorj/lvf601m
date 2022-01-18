@@ -1,0 +1,4 @@
+Building DAG of jobs...
+MissingInputException in line 1 of /home/tjonmundsson/Documents/lvf601m/assignments/assign2/Snakefile:
+Missing input files for rule all:
+report/lv601_assignment_2.pdf

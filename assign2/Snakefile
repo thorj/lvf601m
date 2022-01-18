@@ -1,0 +1,9 @@
+rule all:
+    input:
+        "report/lvf601_assignment_2.pdf"
+
+rule phasePlot:
+    output:
+        "img/phasePlot.png"
+    script:
+        "scripts/phasePlot.py"

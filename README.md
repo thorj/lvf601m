@@ -16,3 +16,6 @@ img/            Images for final result
 Snakefile       Workflow file
 workflow.svg    Flowchart of dependencies/workflow
 ```
+
+## Relative paths
+You need to clone the entire repository! The code relies on the `here()` function which uses heuristics to determine the project root folder. Without the root all relative paths will be broken.
