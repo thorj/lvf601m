@@ -23,43 +23,72 @@ options(scipen = 999)
 {\Large Assignment 2}
 \end{center}
 
-Note: all files relevant to this document are hosted on [GitHub](https://github.com/thorj/lvf601m)
+Note: all files relevant to this document are hosted on [GitHub](https://github.com/thorj/lvf601m) under the folder `assign2`
 
-## Problem 1: [1.5 points]
+## Problem 1: [2 points]
 Read the paper _Just-in-time transcription program in metabolic pathways_. Provide a summary of the paper structured as follows:
     
-1. What was the problem/challenge addressed by the authors and why is it relevant?
+a. What was the problem/challenge addressed by the authors and why is it relevant?
 
-2. What was their approach, i.e. how did they do what they did?
+b. What was their approach, i.e. how did they do what they did?
 
-3. State the key take-home messages from their results, i.e., what did they find?
-
+c. State the key take-home messages from their results, i.e., what did they find?
 
 ## Solution:
+Transcription factors influence the activity of genes. On the whole these transcription factors form a network and the researchers were interested to see if they could determine the "rules" of this network. That is to say, they were interested in studying the dynamics of the network. 
 
-## Problem 2: [2.5 points]
+To do so they focused on the  *amino-acid biosynthesis* (AAB) genes of E.coli at high (a) temporal resolution and (b) accuracy. To measure AAB promoter activity at a high temporal resolution the researchers measured fluorescence, luminescence, absorbance from multiple cultures in parallel. This allowed the researchers to measure expression every four or eight minutes[@zaslaver_just_time_2004]. The experiment was as follows:
+
+1. Measurements were taken of cells in a medium devoid of amino acids. In this state, all promoters of the cells were active. Similarly, measurements were taken in a medium fully saturated with the complete amino-acid profile. In this state, all promoter activity was repressed[@zaslaver_just_time_2004].
+
+2. The cells were introduced to a medium containing a single amino acid. When measurements were collected in this medium it was found that the associated biosynthesis pathway was repressed[@zaslaver_just_time_2004].
+
+These findings suggest that there exists an interaction between the amino acids and the regulation of the transcription factors. The paper cites arginine biosynthesis as a prominent example. When glutamate, a precursor to arginine, was added to the "empty" medium biosynthesis of arginine was reduced. To study arginine further, the dynamics of the AAB systems were examined in a fully enriched medium *without* arginine. The experiment revealed that there was a temporal, unbranched order to the biosynthesis of arginine[@zaslaver_just_time_2004]. 
+
+Three amino acids are required to produce arginine: glutamate, glutamine, and aspartate. The researchers saw that promoter activity related to the conversion from glutamate to ornithine was first to upregulated and *only* when enough ornithine was present were promoters associated with gluatmine and aspartate upregulated. The researchers also found that the arginine biosynthesis channel could be described adequetely with well-known differential equations[@zaslaver_just_time_2004].
+
+The findings of the study can thus summarized as follows:
+
+i. The closer an enzyme is to the beginning of the pathway the shorter the repsonse time of the activation of its promoter *and* the higher its maximal promoter activity is.
+
+ii. It is possible to model this process mathematically as a production pipleline using known differential equation.
+
+## Problem 2: [3 points]
 Read Huang et al. 2007 paper _Bifurcation dynamics in lineage-commitment in bipotent progenitor cells_.
 
 a. [1.5 points] Provide a succinct summary of the findings of the paper. Half a page would be perfect.
 
-b. [1 point] Use phase portrait tools to reproduce figure 3D. Interpret the result and discuss why this behavior is relevant to developmental biology.
+b. [1.5 point] Use phase portrait tools to reproduce figure 3D. Interpret the result and discuss why this behavior is relevant to developmental biology.
 
 ## Solution:
-```{r}
+
+a. During development cells need to "choose" a final form. These "choices" are determined by ratios of lineage-affiliated transcription factors. It is not known *how* these transcription factors govern the system and that is what this paper explores. To do so, the researcher analyzed a system composed of two transcription factors, GATA1 and PU.1, with experimental and mathematical methods. This simple two-component circuit generates attractors for erythroid and myelomonocytic cell fates, as well as a third, non-commital state where both GATA1 and PU.1 are active.First, developmental processes were predicted using ordinary differential equations; second, these predictions were then compared to the outcomes of experiments.  The findings of the paper were as follows: in the first phase, progenitor cells are in a state somewhere between the two terminal states which s then destabilized by a bifurcation event; in the second phase, after the destabilization event, attractors "draw" cells towards their terminal state[@huang_bifurcation_2007], depending on expression of GATA1 and PU.1 as well as the sensitivity of the cell to these attractors. This suggested that the "choice" is both deterministic *and* stochastic; sometimes the perturbations are preordained, and sometimes a random fluctation in the envirinment starts the chain of events that leads a cell to its ultimate fate. 
+
+b. The replicated plot can be seen in figure \@ref(fig:phasePlot). The code used to generate figure \@ref(fig:phasePlot) can be seen in the Code section below or at my [Github](https://github.com/thorj/lvf601m/blob/main/assign2/scripts/phasePlot.py). The figure shows how different expressions of GATA1 and PU.1 determine the eventual fate of a cell. Three possibilities exist, one as a result of high expression of GATA1 and repression of PU.1, another where PU.1 is highly expressed and GATA1 repressed, and finally a third where both PU.1 and GATA1 are expressed together. This is obviously important to developmental biology as it allows cells to take up permanent roles (such as liver cells, etc).
+
+```{r phasePlot, fig.cap="Phase plot of system. It shows three sinks, each representing a potential fate of the cell. When PU.1 is highly expressed and GATA1 repressed, the cell is drawn towarsds the sink located in the upper left corner; when GATA1 is highly expressed and PU.1 repressed, the cell is drawn towards the sink in the lower, right corner. Finally, if both GATA1 and PU.1 are expressed, the cell is drawn towards the center sink."}
 include_graphics(here('assign2', 'img', 'phasePlot.png'))
 ```
 
-
-
-## Problem 3: [1 point] 
-Solve Exercise 7.5 (page 134) from Alon's book.
-
-## Solution:
-
-## Problem 4: [1 points]
+## Problem 3: [1 points]
 Solve Exercise 9.1 (page 166) from Alon's book.
 
 ## Solution: 
+If E.coli senses an increase in the concentration of repellents in its environment it repsonds by increasing its tumbling frequency causing it to change its trajectory to get away from the repellent. The further it gets from the repellent, the more the tumbling frequency reduces until it reverts back to its steady state.
+
+This can be seen in figure 9.6 in Uri Alon's book [@alon_introduction_2019]. A repellent signal $S$ is detected causing $X$ to assume its active form $X^*$. This in turn phosphorylates a response-regulatory protein which we will denote with $Y^*$. $Y^*$ binds to the flagellum, increasing the probability that it switches from a counter-clockwise rotation to clockwise rotation resulting in tumbling.
+
+\newpage
+
+## Code
+
+### LOAD.R
+```{r echo = T, code = readLines(here('assign2', 'scripts', 'LOAD.R')), eval = F}
+```
+
+### phasePlot.py
+```{python, eval = F, echo = T, code = readLines(here('assign2', 'scripts', 'phasePlot.py'))}
+```
 
 ## References
 

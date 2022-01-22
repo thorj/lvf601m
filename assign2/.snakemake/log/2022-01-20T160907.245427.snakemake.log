@@ -1,0 +1,22 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Job stats:
+job          count    min threads    max threads
+---------  -------  -------------  -------------
+phasePlot        1              1              1
+total            1              1              1
+
+Select jobs to execute...
+
+[Thu Jan 20 16:09:07 2022]
+rule phasePlot:
+    output: img/phasePlot.png
+    jobid: 0
+    resources: tmpdir=/tmp
+
+[Thu Jan 20 16:09:08 2022]
+Finished job 0.
+1 of 1 steps (100%) done
+Complete log: /home/tjonmundsson/Documents/lvf601m/assignments/assign2/.snakemake/log/2022-01-20T160907.245427.snakemake.log

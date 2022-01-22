@@ -1,6 +1,6 @@
 rule all:
     input:
-        "report/lvf601_assignment_2.pdf"
+        "img/phasePlot.png" 
 
 rule phasePlot:
     output:
